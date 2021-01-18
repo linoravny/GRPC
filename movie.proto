@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+service MovieService {
+    rpc Insert (Movie) returns (MovieList) {}
+    rpc InsertMany (MovieList) returns (MovieList) {}
+    rpc Search (Search) returns (MovieList) {}
+}
+
+message Empty {}
+
+message Search {
+    string id = 1;
+}
+
+message Movie {
+    string id = 1;
+    string title = 2;
+    string content = 3;
+}
+
+message MovieList {
+    repeated Movie movies = 1;
+}
+
+
+
+
